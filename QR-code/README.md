@@ -25,15 +25,15 @@ pip install requests
 #### CustomerDataRetriever Class:
 This class is responsible for interacting with the API and contains the following main methods:
 
--**__init__()**: Initialize the API configuration and session, setting the login URL, member data URL, membership information URL, and authentication credentials.
--**authenticate()**: Send an authentication request to the API to obtain an authentication token.
--**extract_member_identifier(input_data)**: Extract the member identifier from the input bio link.
--**get_member_data(identifier)**: Retrieve the member's basic information based on the member identifier.
--**get_purchase_records(member_identifier)**: Retrieve the member's purchase records based on the member identifier.
--**filter_purchase_data(data)**: Filter and aggregate the purchase record data to extract relevant product information.
--**find_member_in_response(data, identifier)**: Find the matching member information in the API response.
--**format_member_data(member)**: Format the member information for display.
--**process_bio_link(bio_link)**: Process the bio link and return the complete member data.
+- **__init__()**: Initialize the API configuration and session, setting the login URL, member data URL, membership information URL, and authentication credentials.
+- **authenticate()**: Send an authentication request to the API to obtain an authentication token.
+- **extract_member_identifier(input_data)**: Extract the member identifier from the input bio link.
+- **get_member_data(identifier)**: Retrieve the member's basic information based on the member identifier.
+- **get_purchase_records(member_identifier)**: Retrieve the member's purchase records based on the member identifier.
+- **filter_purchase_data(data)**: Filter and aggregate the purchase record data to extract relevant product information.
+- **find_member_in_response(data, identifier)**: Find the matching member information in the API response.
+- **format_member_data(member)**: Format the member information for display.
+- **process_bio_link(bio_link)**: Process the bio link and return the complete member data.
 
 #### display_results(result) Function
 Display the processed results in a readable format on the console.
@@ -65,10 +65,10 @@ self.API_CONFIG = {
     'token': None
 }
 
--**login_url**: The login URL of the API.
--**member_data_url**: The URL for retrieving member purchase records.
--**membership_url**: The URL for retrieving member basic information.
--**credentials**: The email and password used for authentication.
+- **login_url**: The login URL of the API.
+- **member_data_url**: The URL for retrieving member purchase records.
+- **membership_url**: The URL for retrieving member basic information.
+- **credentials**: The email and password used for authentication.
 
 ## Error Handling
 
