@@ -7,11 +7,11 @@ The CustomerDataRetriever is a Python script designed to retrieve customer data 
 
 ## Features:
 
-Authentication: Authenticate with the API using the provided email and password to ensure secure data access.
-Member Identifier Extraction: Smartly extract the member identifier from the input bio link, supporting various link formats.
-Member Information Retrieval: Retrieve the member's basic information, such as name, email, and phone number, based on the extracted member identifier.
-Purchase Record Retrieval: Fetch the member's purchase records according to the member identifier, and filter and aggregate the data to show only relevant product information.
-Error Handling: Implement comprehensive error handling during authentication, API requests, and data processing, providing detailed error messages.
+1. Authentication: Authenticate with the API using the provided email and password to ensure secure data access.
+2. Member Identifier Extraction: Smartly extract the member identifier from the input bio link, supporting various link formats.
+3. Member Information Retrieval: Retrieve the member's basic information, such as name, email, and phone number, based on the extracted member identifier.
+4. Purchase Record Retrieval: Fetch the member's purchase records according to the member identifier, and filter and aggregate the data to show only relevant product information.
+5. Error Handling: Implement comprehensive error handling during authentication, API requests, and data processing, providing detailed error messages.
 
 ## Installation Dependencies:
 
@@ -25,15 +25,15 @@ pip install requests
 #### CustomerDataRetriever Class:
 This class is responsible for interacting with the API and contains the following main methods:
 
-__init__(): Initialize the API configuration and session, setting the login URL, member data URL, membership information URL, and authentication credentials.
-authenticate(): Send an authentication request to the API to obtain an authentication token.
-extract_member_identifier(input_data): Extract the member identifier from the input bio link.
-get_member_data(identifier): Retrieve the member's basic information based on the member identifier.
-get_purchase_records(member_identifier): Retrieve the member's purchase records based on the member identifier.
-filter_purchase_data(data): Filter and aggregate the purchase record data to extract relevant product information.
-find_member_in_response(data, identifier): Find the matching member information in the API response.
-format_member_data(member): Format the member information for display.
-process_bio_link(bio_link): Process the bio link and return the complete member data.
+-**__init__()**: Initialize the API configuration and session, setting the login URL, member data URL, membership information URL, and authentication credentials.
+-**authenticate()**: Send an authentication request to the API to obtain an authentication token.
+-**extract_member_identifier(input_data)**: Extract the member identifier from the input bio link.
+-**get_member_data(identifier)**: Retrieve the member's basic information based on the member identifier.
+-**get_purchase_records(member_identifier)**: Retrieve the member's purchase records based on the member identifier.
+-**filter_purchase_data(data)**: Filter and aggregate the purchase record data to extract relevant product information.
+-**find_member_in_response(data, identifier)**: Find the matching member information in the API response.
+-**format_member_data(member)**: Format the member information for display.
+-**process_bio_link(bio_link)**: Process the bio link and return the complete member data.
 
 #### display_results(result) Function
 Display the processed results in a readable format on the console.
@@ -44,12 +44,12 @@ The entry point of the program, providing a command - line interface that allows
 
 ## Usage
 
-Ensure that you have installed the required dependencies.
-Run the script:
+1. Ensure that you have installed the required dependencies.
+2. Run the script:
 python A.py
-Follow the prompt to input the customer's bio link, or enter quit to exit the program.
-The program will automatically authenticate. If the authentication is successful, it will display the member's basic information.
-If the member information is retrieved successfully, the program will attempt to retrieve and display the member's purchase records.
+3. Follow the prompt to input the customer's bio link, or enter quit to exit the program.
+4. The program will automatically authenticate. If the authentication is successful, it will display the member's basic information.
+5. If the member information is retrieved successfully, the program will attempt to retrieve and display the member's purchase records.
 
 ## Configuration Instructions
 
@@ -65,10 +65,10 @@ self.API_CONFIG = {
     'token': None
 }
 
-login_url: The login URL of the API.
-member_data_url: The URL for retrieving member purchase records.
-membership_url: The URL for retrieving member basic information.
-credentials: The email and password used for authentication.
+-**login_url**: The login URL of the API.
+-**member_data_url**: The URL for retrieving member purchase records.
+-**membership_url**: The URL for retrieving member basic information.
+-**credentials**: The email and password used for authentication.
 
 ## Error Handling
 
