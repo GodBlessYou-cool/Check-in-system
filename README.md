@@ -27,3 +27,8 @@ A Python script that retrieves customer membership data and purchase records thr
 
 ```bash
 pip install requests
+
+### Running the Script
+
+```bash
+python QR-code.py
