@@ -22,7 +22,9 @@ cd face-recognition
 ```
 ### 2. Create and Activate a Virtual Environment (Optional but Recommended)
 To avoid conflicts between project dependencies and the system environment, it is recommended to create a virtual environment. Execute the following command:
-``` python -m venv venv ```
+``` 
+python -m venv venv
+```
 Activate the virtual environment:
 - **Linux/MacOS**:
 ``` source venv/bin/activate ```
@@ -30,7 +32,9 @@ Activate the virtual environment:
 ``` venv\Scripts\activate ```
 ### 3. Install Dependencies
 After activating the virtual environment, use the following command to install the project's required dependencies:
-``` pip install -r requirements.txt ```
+``` 
+pip install -r requirements.txt
+```
 ### 4. Configure Environment Variables
 Create a ``` .env ```file in the project root directory and add the following environment variables:
 ```
