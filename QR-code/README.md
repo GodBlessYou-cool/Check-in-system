@@ -63,7 +63,8 @@ You can modify the following configuration in the __init__ method of the Custome
         'password': 'Abc123'
     },
     'token': None
-} ```
+}
+```
 
 - **login_url**: The login URL of the API.
 - **member_data_url**: The URL for retrieving member purchase records.
