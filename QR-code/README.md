@@ -16,7 +16,7 @@ The CustomerDataRetriever is a Python script designed to retrieve customer data 
 ## Installation Dependencies:
 
 This project depends on the requests library. You can install it using the following command:
-´´´bash pip install requests ´´´
+```bash pip install requests ```
 
 ## Code Structure
 
@@ -46,7 +46,7 @@ The entry point of the program, providing a command - line interface that allows
 
 1. Ensure that you have installed the required dependencies.
 2. Run the script:
-python A.py
+```bash python A.py ```
 3. Follow the prompt to input the customer's bio link, or enter quit to exit the program.
 4. The program will automatically authenticate. If the authentication is successful, it will display the member's basic information.
 5. If the member information is retrieved successfully, the program will attempt to retrieve and display the member's purchase records.
