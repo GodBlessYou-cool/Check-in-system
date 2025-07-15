@@ -16,7 +16,7 @@ The CustomerDataRetriever is a Python script designed to retrieve customer data 
 ## Installation Dependencies:
 
 This project depends on the requests library. You can install it using the following command:
-pip install requests
+´´´bash pip install requests ´´´
 
 ## Code Structure
 
