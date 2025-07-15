@@ -28,3 +28,37 @@ A Python script that retrieves customer membership data and purchase records thr
 ```bash
 pip install requests
 
+python QR-code.py
+
+Enter a bio link (or 'quit' to exit):
+https://stickie.link/bio-link/john-doe
+
+Authenticating...
+Authentication successful
+
+=== MEMBER INFORMATION ===
+name: John Doe
+email: john.doe@example.com
+phone: +1 234-567-8901
+member_id: MEM12345
+tier: Premium
+status: Active
+join_date: 2023-01-15T08:30:00.000000Z
+
+Retrieving purchase records for John Doe...
+
+=== PURCHASE RECORDS ===
+Premium Coffee Beans: 5, last shopping date: 2024-02-15
+Stainless Steel Mug: 2, last shopping date: 2024-01-20
+Organic Tea Sampler: 3, last shopping date: 2023-12-10
+
+self.API_CONFIG = {
+    'login_url': 'https://staging.stickie.link/api/v1/login',
+    'member_data_url': 'https://staging.stickie.link/api/v1/membership/member_data',
+    'membership_url': 'https://staging.stickie.link/api/v1/membership/data',
+    'credentials': {
+        'email': 'kishore@stickies.tech',
+        'password': 'Abc123'
+    },
+    'token': None
+}
