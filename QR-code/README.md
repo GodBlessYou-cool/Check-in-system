@@ -54,7 +54,7 @@ The entry point of the program, providing a command - line interface that allows
 ## Configuration Instructions
 
 You can modify the following configuration in the __init__ method of the CustomerDataRetriever class:
-self.API_CONFIG = {
+```self.API_CONFIG = {
     'login_url': 'https://staging.stickie.link/api/v1/login',
     'member_data_url': 'https://staging.stickie.link/api/v1/membership/member_data',
     'membership_url': 'https://staging.stickie.link/api/v1/membership/data',
@@ -63,7 +63,7 @@ self.API_CONFIG = {
         'password': 'Abc123'
     },
     'token': None
-}
+} ```
 
 - **login_url**: The login URL of the API.
 - **member_data_url**: The URL for retrieving member purchase records.
