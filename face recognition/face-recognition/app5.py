@@ -83,9 +83,9 @@ class CustomerDataRetriever:
     def format_date(self, date_string):
         try:
             dt = datetime.fromisoformat(date_string.replace('Z', '+00:00'))
-            return dt.strftime('%Y-%m-%d')  # Only date, no time
+            return dt.strftime('%Y-%m-%d')
         except:
-            return date_string.split('T')[0]  # Fallback
+            return date_string.split('T')[0]
 
 def capture_face_from_camera():
     cap = cv2.VideoCapture(0)
@@ -94,11 +94,13 @@ def capture_face_from_camera():
         return None
 
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-    print("\nLooking for faces... Face will be automatically captured when detected")
+    print("\nLooking for faces. Please come close and look at the camera.")
 
     captured_image = None
     face_detected_time = None
-    capture_delay = 2
+    capture_delay = 2  # 2 seconds hold required
+    min_face_area = 160 * 160  # Closer face required
+    face_detecting = False
 
     try:
         while True:
@@ -112,25 +114,32 @@ def capture_face_from_camera():
             current_time = datetime.now()
 
             if len(faces) > 0:
-                if face_detected_time is None:
-                    face_detected_time = current_time
-                    print("Face detected! Preparing to capture...")
+                x, y, w, h = max(faces, key=lambda f: f[2] * f[3])
 
-                if (current_time - face_detected_time).total_seconds() >= capture_delay:
-                    x, y, w, h = max(faces, key=lambda f: f[2] * f[3])
-                    captured_image = frame[y:y+h, x:x+w]
-                    print("✅ Face captured automatically!")
-                    break
+                face_area = w * h
+
+                if face_area >= min_face_area:
+                    if not face_detecting:
+                        face_detected_time = current_time
+                        face_detecting = True
+
+                    elapsed = (current_time - face_detected_time).total_seconds()
+                    cv2.putText(frame, f"Hold Still: {elapsed:.2f}s", (x, y - 10),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+
+                    if elapsed >= capture_delay:
+                        captured_image = frame[y:y + h, x:x + w]
+                        print("📸 Face captured!")
+                        break
+                else:
+                    face_detected_time = None
+                    face_detecting = False
             else:
                 face_detected_time = None
+                face_detecting = False
 
-            for (x, y, w, h) in faces:
-                cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
-                if face_detected_time:
-                    time_left = capture_delay - (current_time - face_detected_time).total_seconds()
-                    if time_left > 0:
-                        cv2.putText(frame, f"Capturing in: {time_left:.1f}s", (x, y-10),
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2)
+            if len(faces) > 0:
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
             cv2.imshow('Face Detection - Press ESC to quit', frame)
             if cv2.waitKey(1) == 27:
@@ -174,6 +183,7 @@ def get_all_membership_data(token):
 
 def main():
     print("=== Face Recognition & Purchase Summary ===\n")
+
     image_path = capture_face_from_camera()
     if not image_path:
         print("❌ No face captured.")
